@@ -1,5 +1,6 @@
 import React from 'react'
 import AgGridComponent from '../../components/agGrid/agGrid.component';
+import {Link} from 'react-router-dom'
 const AgGrid=()=>{
     
     const fetchData=async()=>{
@@ -7,6 +8,7 @@ const AgGrid=()=>{
         const json=await res.json();
         const data=json.map((d)=>{
             d.rating=d['rating'].rate;
+            d.title={name:d.title,id:d.id}
             return {...d}
         })
         return data;
@@ -21,9 +23,16 @@ const AgGrid=()=>{
         },
         {
             headerName:'Title',
+            filter:"agTextColumnFilter",
             field:'title',
             tooltipField:"title",
-            hide:false
+            hide:false,
+            //cell renderer framework will render custom component on grid
+            //params are the data added to column
+            cellRendererFramework:(params)=>{
+                console.log(params)
+               return(<Link to={`/product/${params.value.id}`}>{params.value.name}</Link>)
+            }
         },
         {
             headerName:'Price',
@@ -56,7 +65,7 @@ const AgGrid=()=>{
     //filter decides if the filter can be applied or not
     //flex spans the tABLE in entire page
     const defaultColumnDef={
-        sortable:true, editable:false, filter:true,flex:1
+        sortable:true, editable:false, filter:true,enableRowGroup: true,flex:1
     }
     return(
         <React.Fragment>

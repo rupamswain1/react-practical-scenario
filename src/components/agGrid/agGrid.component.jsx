@@ -1,24 +1,28 @@
 import React,{useState,useEffect} from 'react'
 import TopNavigationBar from '../UI-elements/topNavigationBar/topNavigationBar.component';
 import {AgGridColumn, AgGridReact} from 'ag-grid-react';
-
+import 'ag-grid-enterprise';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-function AgGridComponent({columnData,rowData,defaultColumnDef,fetchData}) {
+const AgGridComponent=({columnData,rowData,defaultColumnDef,fetchData})=>{
+    const [gridApi, setGridApi] = useState(null);
+    const [gridColumnApi, setGridColumnApi] = useState(null);
     const[columns,setColumns]=useState(columnData);
-    const [gridApi,setGridApi]=useState(null);
-    const [gridColumnApi,setGridColumnApi]=useState(null)
-    useEffect(()=>{console.log('rendering')},[columns])
-   
+    
     //For Excel Export
-    const onGridReady=async (params)=>{
-        setGridApi(params.api)
-        console.log(params.columnApi)
-        setGridColumnApi(params.columnApi)
-        const data=await fetchData();
-        console.log(data)
-        params.api.applyTransaction({add:data})
+    
+    const onGridReady = (params) => {
+        setGridApi(params.api);
+        setGridColumnApi(params.columnApi);
+        fetchData().then(data=>{
+            params.api.applyTransaction({add:data})
+    
+            
+        });
+        console.log(gridApi);
         console.log(gridColumnApi)
+
+       
     }
     //Excel Export
     const exportData=()=>{
@@ -28,20 +32,12 @@ function AgGridComponent({columnData,rowData,defaultColumnDef,fetchData}) {
     const onSelectionChanged=(event)=>{
         console.log(event.api.getSelectedRows())
     }
-    const setColumnVisibility=(event)=>{
-        this.agGrid.columnApi.setColumnsVisible('title', true);
-        //gridOptions.columnApi.setColumnVisible() 
-        gridColumnApi.setColumnVisibility(event.target.className,!event.target.checked)
-        // let modiFiedCols=columns.map((col)=>{
-        //     if(col.field===event.target.name){
-        //         col['hide']=!event.target.checked
-        //     }
-        //     return col;
-        // })
-        // setColumns(new Array(...modiFiedCols))
-        // console.log(columns)
-        // console.log(event.target.name)
-        // console.log(!event.target.checked)
+    function setColumnVisibility(event,params){
+        //console.log(params)
+        //this.agGrid.columnApi.setColumnsVisible('title', true);
+         
+        gridApi.setColumnVisibility(event.target.className,!event.target.checked)
+        
     }
     return (
         <React.Fragment>
@@ -52,6 +48,9 @@ function AgGridComponent({columnData,rowData,defaultColumnDef,fetchData}) {
                              
                             columnDefs={columns} 
                             defaultColDef={defaultColumnDef} 
+                            sideBar={{ toolPanels: ['columns'] }}
+                            rowGroupPanelShow={'always'}
+                            debug={true}
                             onGridReady={onGridReady}
                             enableBrowserTooltips={true}
                             tooltipShowDelay={{tooltipShowDelay:2}} 
