@@ -3,8 +3,7 @@ import {useParams} from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import CardMedia from '@material-ui/core/CardMedia';
-import MenuIcon from '@material-ui/icons/Menu';
+import './productDetail.style.scss';
 function ProductDetails() {
     const styles = 
 {
@@ -23,11 +22,12 @@ media: {
         .then(res=>res.json())
         .then(data=>{
             setProductData(data)
-            //document.title(productData.title)
+            
         })
         
     },[id])
-    console.log(productData)
+    //console.log(productData)
+    document.title=productData?productData.title:'Product Page'
     return (
         <div className='mainProductPage'>
             <div className='topBar'>
@@ -49,16 +49,34 @@ media: {
                             {productData.title}
                         </div>
                         <div className="categoryContainer">
-                            {productData.category}
+                            Category: {productData.category}
                         </div>
                         <div className="descriptionContainer">
-                            {productData.description}
+                            <div className='titleContainer'>
+                                Description:
+                            </div>
+                            <div className="descriptionContainer">
+                                {productData.description}
+                            </div>
+                            
                         </div>
                         <div className="ratingContainer">
-                            {productData.rating.rate}
+                            <div className="ratingTitle">
+                                Rating:  
+                            </div>
+                            <div className="ratingContainer">
+                                {productData.rating.rate}
+                            </div>
+                           
                         </div>
                         <div className="priceContainer">
-                            {productData.price}
+                            <div className="priceTitle">
+                                    Price: Rs
+                            </div>
+                            <div className="priceBox">
+                                 {productData.price}
+                            </div>
+                            
                         </div>
 
                     </div>

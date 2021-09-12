@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function TopNavigationBar({exportData,defaultColumns,setColumnVisibility}) {
+export default function TopNavigationBar({pagename,exportData,defaultColumns,setColumnVisibility}) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleClick = (event) => {
@@ -41,12 +41,9 @@ export default function TopNavigationBar({exportData,defaultColumns,setColumnVis
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            AG-Grid
+            {pagename}
           </Typography>
           <div>
-            <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} style={{color:'white'}}>
-                Open Menu
-            </Button>
             <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}

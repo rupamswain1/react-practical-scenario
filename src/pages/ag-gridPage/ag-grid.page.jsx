@@ -30,7 +30,6 @@ const AgGrid=()=>{
             //cell renderer framework will render custom component on grid
             //params are the data added to column
             cellRendererFramework:(params)=>{
-                console.log(params)
                return(<Link to={`/product/${params.value.id}`}>{params.value.name}</Link>)
             }
         },
@@ -70,7 +69,7 @@ const AgGrid=()=>{
     return(
         <React.Fragment>
             <div>
-                <AgGridComponent columnData={columns} fetchData={fetchData} defaultColumnDef={defaultColumnDef}/>
+                <AgGridComponent pagename="AG-Grid" columnData={columns} fetchData={fetchData} defaultColumnDef={defaultColumnDef}/>
             </div>
         </React.Fragment>
     )

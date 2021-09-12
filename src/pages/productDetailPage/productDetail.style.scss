@@ -1,0 +1,64 @@
+.mainProductPage{
+    height: 100vh;
+    width:100vw;
+    display: block;
+    .productDataContainer{
+        display: flex;
+        flex-direction: row;
+        padding: 1%;
+        height: 88vh;
+        background-color:rgb(238, 234, 234);
+        .imageBox{
+            
+
+        }
+        .detailsBox{
+            display: flex;
+            flex-direction: column;
+            width: 50vw;
+            margin-left: 5vw;
+            //border: 1px solid black;
+            .nameContainer{
+                font-weight: bold;
+                font-size: 2rem;
+                text-align: center;
+            }
+            .categoryContainer{
+                font-weight: bold;
+                margin-bottom: 2%;
+            }
+            .descriptionContainer{
+                display: inherit;
+                flex-direction: inherit;
+                background-color:rgb(231, 230, 230);
+                padding: 1%;
+                .titleContainer{
+                    margin-top: 0%;
+                    margin-bottom: 1%;
+                    font-weight: bold;
+                }
+                .descriptionContainer{
+                    text-align: center;
+                }
+            }
+            .ratingContainer{
+                display: flex;
+                flex-direction: row;
+                
+                .ratingTitle{
+                    font-weight: bold;
+                    margin-right:1%;
+                }
+            }
+            .priceContainer{
+                display: inherit;
+                flex-direction: row;
+                .priceTitle{
+                    font-weight: bold;
+                    margin-right: 0.5%;
+                }
+
+            }
+        }
+    }
+}
