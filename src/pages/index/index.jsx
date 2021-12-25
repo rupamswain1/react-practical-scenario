@@ -19,7 +19,8 @@ function Index() {
 
     const fetchData=async()=>{
         const data=[
-            {sno:1,pageName:'AG-Grid'}
+            {sno:1,pageName:'AG-Grid'},
+            {sno:2,pageName:'Formik-Example1'},
         ]
         return data;
     }
