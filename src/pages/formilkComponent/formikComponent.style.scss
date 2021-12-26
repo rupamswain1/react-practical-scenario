@@ -1,0 +1,19 @@
+.formikForm{
+    display: block;
+    border: 1px solid black;
+    height:100vh;
+    text-align: center;
+    top: 20%;
+}
+.formlink__form{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    position: relative;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+.submitButton{
+    margin-top: 1rem;
+}

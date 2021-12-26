@@ -21,6 +21,7 @@ function Index() {
         const data=[
             {sno:1,pageName:'AG-Grid'},
             {sno:2,pageName:'Formik-Example1'},
+            {sno:3,pageName:'Formik-Component'},
         ]
         return data;
     }
