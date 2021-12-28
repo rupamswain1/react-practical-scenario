@@ -22,6 +22,7 @@ function Index() {
             {sno:1,pageName:'AG-Grid'},
             {sno:2,pageName:'Formik-Example1'},
             {sno:3,pageName:'Formik-Component'},
+            {sno:4,pageName:'FormikForm'},
         ]
         return data;
     }
