@@ -69,7 +69,7 @@ function FormikComponent() {
                     
                     <Field type='number' id='age' name='age'/>
                     <ErrorMessage name='age'/>
-                    <lable htmlFor='address'>Address</lable>
+                    <label htmlFor='address'>Address</label>
                     {/*when we use the normal field then the field will re render even if we enter data in any other field, but FastField only rerenders when data is entered into the same field*/}
                     <FastField name='address'>
                         {
@@ -87,20 +87,20 @@ function FormikComponent() {
                         }
                     </FastField>
 
-                    <h2 clasName='heading'>Nested Object example</h2>
-                    <lable htmlFor='facebook'>Facebook</lable>
+                    <h2 className='heading'>Nested Object example</h2>
+                    <label htmlFor='facebook'>Facebook</label>
                     <Field type='text' id='facebook' name='social.facebook'/>    
-                    <lable htmlFor='instagram'>Instagram</lable>
+                    <label htmlFor='instagram'>Instagram</label>
                     <Field type='text' id='instagram' name='social.instagram'/>  
 
-                    <h2 clasName='heading'>Array Object example</h2>
-                    <lable htmlFor='primaryPhone'>Primary Phone</lable>
+                    <h2 className='heading'>Array Object example</h2>
+                    <label htmlFor='primaryPhone'>Primary Phone</label>
                     <Field type='number' id='primaryPhone' name='phoneNumber[0]'/>    
-                    <lable htmlFor='secondaryNumber'>Secondary Number</lable>
+                    <label htmlFor='secondaryNumber'>Secondary Number</label>
                     <Field type='number' id='secondaryNumber' name='phoneNumber[1]'/>
 
                     {/*Field array example*/}
-                    <h2 clasName='heading'>Field Array example</h2>
+                    <h2 className='heading'>Field Array example</h2>
                     <FieldArray name='toDoList'>
                         {
                             fieldArrayProps=>{
@@ -150,11 +150,11 @@ function FormikComponent() {
                     return(
                         <div className='formlink__form'>
                             <h2>Manual validation and visit</h2>
-                            <lable htmlFor='name'>Name</lable>
+                            <label htmlFor='name'>Name</label>
                             <Field type='text' id='name' name='name'/>
                             <ErrorMessage name='name'/>
 
-                            <lable htmlFor='email'>Email</lable>
+                            <label htmlFor='email'>Email</label>
                             <Field type='text' id='email' name='email'/>
                             <ErrorMessage name='email'/> 
                             <br></br>
