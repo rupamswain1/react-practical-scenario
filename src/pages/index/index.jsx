@@ -18,13 +18,14 @@ function Index() {
     ]
 
     const fetchData=async()=>{
-        const data=[
+        return [
             {sno:1,pageName:'AG-Grid'},
             {sno:2,pageName:'Formik-Example1'},
             {sno:3,pageName:'Formik-Component'},
             {sno:4,pageName:'FormikForm'},
+            {sno:4,pageName:'react-query'}
         ]
-        return data;
+        
     }
     const defaultColumnDef={
         sortable:true, editable:false, filter:true,enableRowGroup: true,flex:1
