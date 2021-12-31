@@ -1,15 +1,24 @@
 import React,{useState} from 'react'
-
 import {useQuery} from 'react-query'
-
 const fetchProducts=()=>{
     return fetch('https://fakestoreapi.com/products').then(res=>res.json())
 }
-function FetchQuery() {
-    const [toggle,setToggle]=useState(true)
+function SuccessAndErrorCallback() {
+    const [toggle,setToggle]=useState(false)
+    const onSuccess=(data)=>{
+        setToggle(true)
+        console.log('Data fetch success');
+        console.log(data);
+    }
+    const onError=(error)=>{
+        setToggle('Error Occured')
+        console.log('Error Occured');
+        console.log(error);
+    }
     const {isLoading,data,status}=useQuery('title',fetchProducts,{
-        cacheTime:500000,
+        onSuccess,onError
     })
+    
     console.log(status);
     return (
         <div>
@@ -25,9 +34,10 @@ function FetchQuery() {
                     </ul>
                 :<div>Click on toggle display</div>
             }
+            <div>{toggle+''}</div>
             
         </div>
     )
 }
 
-export default FetchQuery
+export default SuccessAndErrorCallback

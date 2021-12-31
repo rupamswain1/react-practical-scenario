@@ -1,14 +1,12 @@
 import React,{useState} from 'react'
-
 import {useQuery} from 'react-query'
-
 const fetchProducts=()=>{
     return fetch('https://fakestoreapi.com/products').then(res=>res.json())
 }
-function FetchQuery() {
+function RefetchOnWindowFocus() {
     const [toggle,setToggle]=useState(true)
     const {isLoading,data,status}=useQuery('title',fetchProducts,{
-        cacheTime:500000,
+        refetchOnWindowFocus:false           , //refetches the api whenever the screens is opened, like switching to different application and opening the browser again - refetch on mount needs to be set true
     })
     console.log(status);
     return (
@@ -30,4 +28,4 @@ function FetchQuery() {
     )
 }
 
-export default FetchQuery
+export default RefetchOnWindowFocus

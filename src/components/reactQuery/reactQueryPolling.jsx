@@ -1,14 +1,13 @@
 import React,{useState} from 'react'
-
 import {useQuery} from 'react-query'
-
 const fetchProducts=()=>{
     return fetch('https://fakestoreapi.com/products').then(res=>res.json())
 }
-function FetchQuery() {
+function ReactQueryPolling() {
     const [toggle,setToggle]=useState(true)
     const {isLoading,data,status}=useQuery('title',fetchProducts,{
-        cacheTime:500000,
+        refetchInterval:2000 , //refetching interval will poll the api after the provided milliseconds, by default polling remains active when the window is not in focus       
+        refetchIntervalInBackground:false //setting refetchIntervalInBackground to false will stop the polling in the background
     })
     console.log(status);
     return (
@@ -30,4 +29,4 @@ function FetchQuery() {
     )
 }
 
-export default FetchQuery
+export default ReactQueryPolling
