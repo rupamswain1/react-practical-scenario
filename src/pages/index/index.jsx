@@ -23,7 +23,8 @@ function Index() {
             {sno:2,pageName:'Formik-Example1'},
             {sno:3,pageName:'Formik-Component'},
             {sno:4,pageName:'FormikForm'},
-            {sno:4,pageName:'react-query'}
+            {sno:4,pageName:'react-query'},
+            {sno:5,pageName:'D3-Date-Range-Selector'}
         ]
         
     }
