@@ -5,6 +5,9 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@nivo/bar": "^0.80.0",
+    "@nivo/core": "^0.80.0",
+    "@nivo/line": "^0.80.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -12,6 +15,7 @@
     "ag-grid-enterprise": "^26.0.1",
     "ag-grid-react": "^26.0.0",
     "d3": "6",
+    "d3-shape": "^3.2.0",
     "formik": "^2.2.9",
     "react": "^17.0.2",
     "react-datepicker": "^4.5.0",
